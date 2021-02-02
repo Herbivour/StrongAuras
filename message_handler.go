@@ -27,7 +27,8 @@ func runMessageHandler() {
 				w32.MoveWindow(mainWindow, int(eqSize.Left), int(eqSize.Top), int(eqWidth), int(eqHeight), false)
 				lastReposition = now
 			}
-			if now.Sub(lastRender) > time.Duration(100*time.Millisecond) {
+			// Aim for "60 fps"
+			if now.Sub(lastRender) > time.Duration(16*time.Millisecond) {
 				render()
 				lastRender = now
 			}

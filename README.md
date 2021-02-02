@@ -2,6 +2,9 @@
 
 Provides an overlay for EverQuest (Uses Direct3D 9 API for the overlay).  This app will tail your character's log file and watch it for triggers.  You can configure what indicators that you are interested in. I will try and check in newer versions of `StrongAuras.exe` but that file may be out of date.  If you wish compile the binary by hand for any reason please follow the instructions below.
 
+Example
+![Example](img/example.png)
+
 ### Building
 
 * Install Go
