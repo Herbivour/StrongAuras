@@ -1,0 +1,5 @@
+*bin
+*.exe
+!StrongAuras.exe
+.vscode
+config.json

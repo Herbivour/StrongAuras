@@ -1,0 +1,1 @@
+go build github.com/mrherbivour/StrongAuras
