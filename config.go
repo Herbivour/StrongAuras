@@ -8,10 +8,12 @@ import (
 )
 
 type config struct {
-	EqFolder   string       `json:"eq_folder"`
-	Character  string       `json:"character"`
-	Server     string       `json:"server"`
-	Indicators []*indicator `json:"indicators,omitempty"`
+	EqFolder       string       `json:"eq_folder"`
+	Character      string       `json:"character"`
+	Server         string       `json:"server"`
+	OverlayMode    string       `json:"overlay_mode"`
+	WindowPosition Position     `json:"window_position"`
+	Indicators     []*indicator `json:"indicators,omitempty"`
 }
 
 var cfg config

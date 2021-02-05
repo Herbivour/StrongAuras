@@ -20,6 +20,13 @@ Create a `config.json` file in the same folder as StrongAuras.exe.  It should lo
     "eq_folder": "C:\\Users\\Public\\Daybreak Game Company\\Installed Games\\EverQuest\\",
     "Character": "Bossman",
     "Server": "mangler",
+    "overlay_mode": "window",
+    "window_position": {
+        "x": 100,
+        "y": 100,
+        "w": 800,
+        "h": 1000
+    },
     "indicators": [
         {
             "name": "Theif's eyes",
@@ -47,6 +54,8 @@ Settings:
 * eq_folder - location on disk where your EverQuest install is located. (note the double slashes)
 * Character - Character name that you want to monitor.  This is used to find your log file.
 * Server - Server that you play on.  This is also used to find your log file.
+* overlay_mode - optional.  If windowed it will not track and size to EverQuest
+* window_position - Positioning of the window if overlay_mode is set to window
 * indicators - a list of indicators you wish to display
     * name - the name of the indicator.
     * default - `true` means it will show on load, `false` means it will be hidden on load

@@ -44,12 +44,12 @@ func (ind *indicator) InitTexture() {
 	bottom := top + ind.SpriteSheetBox.H
 
 	ind.Triangles = []vertex{
-		{ind.X, ind.Y, right, top},
-		{ind.X, ind.Y - ind.H, right, bottom},
-		{ind.X - ind.W, ind.Y - ind.H, left, bottom},
-		{ind.X - ind.W, ind.Y - ind.H, left, bottom},
-		{ind.X - ind.W, ind.Y, left, top},
-		{ind.X, ind.Y, right, top},
+		{ind.X, ind.Y, left, top},
+		{ind.X, ind.Y - ind.H, left, bottom},
+		{ind.X + ind.W, ind.Y - ind.H, right, bottom},
+		{ind.X + ind.W, ind.Y - ind.H, right, bottom},
+		{ind.X + ind.W, ind.Y, right, top},
+		{ind.X, ind.Y, left, top},
 	}
 }
 

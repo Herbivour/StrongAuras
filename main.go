@@ -15,11 +15,6 @@ const (
 	vertexStride = 16
 )
 
-var (
-	eqWidth  int32
-	eqHeight int32
-)
-
 func init() {
 	runtime.LockOSThread()
 }
@@ -43,6 +38,7 @@ func main() {
 		}
 	}()
 	loadConfig()
+	go cli()
 	go tailLog(
 		fmt.Sprintf("%vLogs\\eqlog_%v_%v.txt", cfg.EqFolder, cfg.Character, cfg.Server),
 	)

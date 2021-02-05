@@ -17,14 +17,23 @@ func runMessageHandler() {
 			w32.DispatchMessage(&msg)
 		} else {
 			now := time.Now()
-			if now.Sub(lastReposition) > time.Duration(5*time.Second) {
+			if cfg.OverlayMode != "window" && now.Sub(lastReposition) > time.Duration(5*time.Second) {
 				if !w32.IsWindow(eq) {
 					return
 				}
 				eqSize := w32.GetWindowRect(eq)
-				eqWidth = eqSize.Right - eqSize.Left
-				eqHeight = eqSize.Bottom - eqSize.Top
-				w32.MoveWindow(mainWindow, int(eqSize.Left), int(eqSize.Top), int(eqWidth), int(eqHeight), false)
+				windowSize.X = int(eqSize.Left)
+				windowSize.Y = int(eqSize.Top)
+				windowSize.W = int(eqSize.Right - eqSize.Left)
+				windowSize.H = int(eqSize.Bottom - eqSize.Top)
+				w32.MoveWindow(
+					mainWindow,
+					windowSize.X,
+					windowSize.Y,
+					windowSize.W,
+					windowSize.H,
+					false,
+				)
 				lastReposition = now
 			}
 			// Aim for "60 fps"

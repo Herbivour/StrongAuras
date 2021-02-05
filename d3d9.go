@@ -27,8 +27,8 @@ func initD3D9() {
 			HDeviceWindow:      d3d9.HWND(mainWindow),
 			MultiSampleQuality: d3d9.MULTISAMPLE_NONE,
 			BackBufferFormat:   d3d9.FMT_A8R8G8B8,
-			BackBufferWidth:    uint32(eqWidth),
-			BackBufferHeight:   uint32(eqHeight),
+			BackBufferWidth:    uint32(windowSize.W),
+			BackBufferHeight:   uint32(windowSize.H),
 		},
 	)
 	if err != nil {
