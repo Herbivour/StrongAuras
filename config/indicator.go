@@ -16,8 +16,8 @@ type spritBox struct {
 type indicator struct {
 	Name           string    `json:"name"`
 	Visable        bool      `json:"default"`
-	ShowWhen       *string   `json:"show_when,omitempty"`
-	HideWhen       *string   `json:"hide_when,omitempty"`
+	ShowWhen       []string  `json:"show_when,omitempty"`
+	HideWhen       []string  `json:"hide_when,omitempty"`
 	Duration       int       `json:"duration"`
 	SpriteSheet    *string   `json:"sprite_sheet"`
 	SpriteSheetBox *spritBox `json:"sprite_box"`
@@ -32,10 +32,21 @@ type indicator struct {
 }
 
 func (ind *indicator) ProcessLogLine(text string) {
-	if ind.HideWhen != nil && *ind.HideWhen != "" && strings.Contains(text, *ind.HideWhen) {
-		ind.Visable = false
-		ind.HiddenAt = time.Now()
-	} else if ind.ShowWhen != nil && *ind.ShowWhen != "" && strings.Contains(text, *ind.ShowWhen) {
-		ind.Visable = true
+	if ind.HideWhen != nil && len(ind.HideWhen) > 0 {
+		for _, chk := range ind.HideWhen {
+			if strings.Contains(text, chk) {
+				ind.Visable = false
+				ind.HiddenAt = time.Now()
+				break
+			}
+		}
+	}
+	if ind.ShowWhen != nil && len(ind.ShowWhen) > 0 {
+		for _, chk := range ind.ShowWhen {
+			if strings.Contains(text, chk) {
+				ind.Visable = true
+				break
+			}
+		}
 	}
 }

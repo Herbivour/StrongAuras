@@ -30,8 +30,8 @@ Create a `config.json` file in the same folder as StrongAuras.exe.  It should lo
         {
             "name": "Theif's eyes",
             "default": true,
-            "show_when": "Your battle sense falters",
-            "hide_when": "You begin to see the weaknesses in your opponents",
+            "show_when": ["Your battle sense falters"],
+            "hide_when": ["You begin to see the weaknesses in your opponents"],
             "duration": 60,
             "x": 0,
             "y": 0,
@@ -58,8 +58,8 @@ Settings:
 * indicators - a list of indicators you wish to display
     * name - the name of the indicator.
     * default - `true` means it will show on load, `false` means it will be hidden on load
-    * show_when - search text that will toggle the indicator to the visable state. If any log line contains this phrase the indicator will be displayed.
-    * hide_when - search text that will toggle the indicator to the hidden state. If any log line contains this phrase the indicator will be hidden.
+    * show_when - list of search text that will toggle the indicator to the visable state. If any log line contains this phrase the indicator will be displayed.
+    * hide_when - list of search text that will toggle the indicator to the hidden state. If any log line contains this phrase the indicator will be hidden.
     * duration - Optional.  # Seconds for the indicator to remain hidden. If you would like this indicator to slowly come back you can configure this option of how long you want the indicator hidden for.
     * x - x position (pixels) from the top left corner
     * y - y position (pixels) from the top left corner
