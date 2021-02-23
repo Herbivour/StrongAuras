@@ -33,7 +33,7 @@ func (g *Gfx) Draw(screen *ebiten.Image) {
 		if ind.EImg != nil {
 			if ind.Visable || ind.Duration > 0 {
 				op := &ebiten.DrawImageOptions{}
-				if ind.X > 0 && ind.Y > 0 {
+				if ind.X > 0 || ind.Y > 0 {
 					op.GeoM.Translate(ind.X, ind.Y)
 				}
 				eImgSize := ind.EImg.Bounds().Size()
